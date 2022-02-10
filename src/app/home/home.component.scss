@@ -1,0 +1,82 @@
+// @import "~bootstrap/dist/css/bootstrap.css";
+
+.form-group {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  input {
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #111;
+    color: #111;
+    &:focus {
+      box-shadow: none;
+      outline: none;
+    }
+  }
+}
+
+.results-container {
+  margin-top: 50px;
+
+  .card {
+    margin-top: 30px;
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+  }
+
+  a {
+    text-decoration: none;
+
+    h5 {
+      color: #111;
+    }
+
+    p {
+      color: #464646;
+    }
+
+    &:hover {
+      .card {
+        transform: scale(1.02);
+        transition: ease 0.2s;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 50%);
+      }
+    }
+  }
+
+  &__number-of-fans {
+    display: none;
+    @media screen and (min-width: 1441px) {
+      display: block;
+    }
+  }
+}
+
+.top-artist-row {
+  margin-top: 50px;
+
+  @media screen and (min-width: 1366px) {
+    display: flex;
+  }
+
+  div {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+    padding: 10px;
+    border-radius: 25px;
+    margin: 0 10px;
+    &:hover {
+      transform: scale(1.02);
+      transition: ease 0.2s;
+      box-shadow: 0 3px 10px rgb(0 0 0 / 50%);
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #111;
+  }
+}

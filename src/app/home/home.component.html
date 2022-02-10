@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div class="container">
+  <div class="form-group">
+    <input type="email" class="form-control form-control-lg" (ngModelChange)="searchApi($event)" id="search-text"
+      aria-describedby="search-text" [(ngModel)]="searchText" placeholder="Search..." autofocus>
+  </div>
+</div>
+
+<div class="container" *ngIf="topArtist">
+  <div class="row">
+    <h2>Top Charts - Artist</h2>
+    <div class="top-artist-row">
+      <div *ngFor="let top of topArtist"><a routerLink="details/{{ top.id }}">{{ top.name }}</a></div>
+    </div>
+  </div>
+</div>
+
+<div class="results-container container" *ngIf="searchText">
+  <div class="row">
+    <div class="col-12 col-md-4 col-lg-3" *ngFor="let artist of artists">
+      <a routerLink="details/{{ artist.id }}">
+        <div class="card">
+          <img src="{{ artist.picture }}" class="card-img-top" alt="{{ artist.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ artist.name }}</h5>
+          </div>
+          <div class="card-footer">
+            <p>{{ artist.nb_fan | number }}k Fans</p>
+            <p class="results-container__number-of-fans">{{ artist.nb_album }} Albums</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container artist-details">
+  <button type="button" class="artist-details__back-btn" (click)="goBack()">go back</button>
+  <div class="row">
+    <div class="card card-artist mb-3" *ngIf="artist">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="{{ artist.picture_big }}" class="img-fluid" alt="{{ artist.name }}">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ artist.name }}</h5>
+            <p class="artist-details__number-of-fan">{{ artist.nb_fan }} fans</p>
+
+            <!-- <div *ngFor="let track in topFiveTracks" class="list-group-item">{{ track.title }}</div> -->
+
+            <div *ngIf="topFiveTracks" class="artist-details__track-list">
+              <div *ngFor="let track of topFiveTracks" class="track-list"><span>{{ track.title }}</span> <span>{{ track.duration / 60 | number }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="albums">
+    <div class="col-12 col-md-4 col-lg-3" *ngFor="let album of albums">
+      <div class="card card-album">
+        <img src="{{ album.cover }}" class="card-img-top" alt="{{ album.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ album.title }}</h5>
+          <p class="card-text">{{ album.release_date | date: 'yyyy' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
